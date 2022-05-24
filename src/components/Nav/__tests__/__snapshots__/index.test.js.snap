@@ -31,37 +31,11 @@ exports[`Nav component matches snapshot DOM node structure 1`] = `
             About me
           </a>
         </li>
-        <li>
+        <li
+          class="mx-2 undefined"
+        >
           <span>
             Contact
-          </span>
-        </li>
-        <li
-          class="mx-1"
-        >
-          <span>
-            commercial
-          </span>
-        </li>
-        <li
-          class="mx-1"
-        >
-          <span>
-            portraits
-          </span>
-        </li>
-        <li
-          class="mx-1"
-        >
-          <span>
-            food
-          </span>
-        </li>
-        <li
-          class="mx-1"
-        >
-          <span>
-            landscape
           </span>
         </li>
       </ul>

@@ -1,13 +1,40 @@
-import React from 'react';
+import React, { useState } from 'react';
 import About from './components/About';
+import Gallery from './components/Gallery';
 import Nav from './components/Nav';
+import ContactForm from './components/Contact';
 
 function App() {
+  const [contactSelected, setContactSelected] = useState(false);
+  
+  const [categories] = useState([
+    { name: 'commercial', description: 'Photos of grocery stores, food trucks, and other commercial projects' },
+    { name: 'portraits', description: 'Portraits of people in my life' },
+    { name: 'food', description: 'Delicious delicacies' },
+    { name: 'landscape', description: 'Fields, farmhouses, waterfalls, and the beauty of nature' },
+  ]);
+
+  const [currentCategory, setCurrentCategory] = useState(categories[0]);
+
   return (
     <div>
-      <Nav></Nav>
+      <Nav
+        categories={categories}
+        setCurrentCategory={setCurrentCategory}
+        currentCategory={currentCategory}
+        contactSelected={contactSelected}
+        setContactSelected={setContactSelected}
+      ></Nav>
       <main>
-        <About></About>
+      {!contactSelected ? (
+          // {this <> is used as a react.fragment. it allows multiple JSX children to be returned without increasing DOM nodes}
+          <>
+            <Gallery currentCategory={currentCategory}></Gallery>
+            <About></About>
+          </>
+        ) : (
+            <ContactForm></ContactForm>
+          )}
       </main>
     </div>
   );
